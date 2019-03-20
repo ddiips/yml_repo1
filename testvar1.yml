@@ -1,0 +1,18 @@
+---
+- hosts:
+    remotehosts
+  become: yes
+  var:
+     sample: anyvalue
+     var1: "{{ lookup('env','var1') }}"
+     var2: "{{ lookup('env','var2') }}"
+  tasks:
+  - name: adding user sam1
+    user:
+     name: "{{ var1 }}"
+     shell: /bin/false
+  - name: adding user sam2
+    user:
+     name: "{{ var1 }}"
+     shell: /bin/false
+
